@@ -1,0 +1,213 @@
+@font-face {
+  font-family: "super-funky";
+  src: url(/fonts/super-funky-font/SuperFunky-lgmWw.ttf);
+}
+
+@font-face {
+  font-family: "nugo-sans";
+  src: url(/fonts/nugo-sans-font/NugoSansLight-9YzoK.ttf);
+}
+
+@mixin flexCenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@keyframes shake {
+  20% {
+    transform: rotate(25deg);
+  }
+  40% {
+    transform: rotate(-25deg);
+  }
+  60% {
+    transform: rotate(25deg);
+  }
+  80% {
+    transform: rotate(-25deg);
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  .container {
+    background-image: url(/img/Portfolio-2.png);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 680px;
+
+    /*HEADER*/
+    .banner {
+      background-color: #fff;
+      opacity: 80%;
+      height: 75px;
+      width: 100%;
+      margin-top: 0;
+      @include flexCenter();
+      position: fixed;
+      top: 0px;
+      z-index: 1000;
+
+      .navMenu {
+        width: 100%;
+        @include flexCenter();
+
+        ul {
+          width: 75%;
+          display: flex;
+          justify-content: end;
+          gap: 9rem;
+          li {
+            display: inline;
+            font-size: 1.2rem;
+          }
+
+          .navLinks {
+            font-family: "nugo-sans";
+            text-decoration: none;
+            color: #000;
+          }
+
+          .navLinks:hover {
+            text-shadow: 4px 4px 6px #000;
+            color: #deaa87;
+            font-weight: 600;
+            /* background-color: #363636;
+          border-radius: 4px; */
+          }
+        }
+
+        .socialIcons {
+          width: 25%;
+          display: flex;
+          justify-content: center;
+          gap: 3rem;
+
+          .fa {
+            @include flexCenter();
+            font-size: 1.7rem;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            transition-property: outline-offset, outline-color, background-color;
+            transition-duration: 0.25s;
+          }
+
+          .fa:hover {
+            display: inline-flex;
+            outline-offset: 3px;
+            animation: shake 1.5s;
+            font-size: 1.9rem;
+          }
+
+          .fa-github {
+            color: #7f34a2;
+            outline: 0.2rem solid #7f34a2;
+          }
+
+          .fa-linkedin {
+            color: #1866c2;
+            outline: 0.2rem solid #1866c2;
+          }
+        }
+      }
+    }
+
+    /*MAIN CONTENT*/
+    .page {
+      @include flexCenter();
+      flex-direction: row;
+      flex-wrap: wrap;
+      /*HOME*/
+      .intro-hero {
+        height: 660px;
+        .name {
+          @include flexCenter();
+
+          flex-direction: column;
+          gap: 0.8rem;
+          margin-top: 250px;
+
+          h1 {
+            font-family: "super-funky";
+            font-size: 4.7rem;
+            letter-spacing: 0.5rem;
+          }
+
+          p {
+            font-family: "nugo-sans";
+            font-size: 3rem;
+            letter-spacing: 0.5rem;
+          }
+        }
+        .roles {
+          @include flexCenter();
+          gap: 1rem;
+          margin-top: 85px;
+          font-family: "nugo-sans";
+          font-size: 1.4rem;
+          .dot {
+            width: 7px;
+            height: 7px;
+            background-color: black;
+            border-radius: 50%;
+          }
+        }
+      }
+
+      .projectsPage {
+        width: 100%;
+        padding: 10px;
+        background-color: #fff;
+        @include flexCenter();
+        flex-direction: column;
+
+        h2 {
+          margin: 60px;
+          width: 100%;
+          text-align: center;
+        }
+        .projects {
+          margin: 20px 0 60px 0;
+          @include flexCenter();
+          flex-flow: row wrap;
+          gap: 8rem;
+          width: 900px;
+
+          .proj {
+            padding: 20px;
+            border: 1px solid black;
+            width: 350px;
+            height: 350px;
+            border-radius: 15%;
+            box-shadow: 0px 0px 15px 1px #b2b1b1;
+            transition: 0.3s;
+
+          }
+
+          .proj:hover {
+            width: 375px;
+            height: 375px;
+          }
+
+
+        }
+      }
+      .about {
+        height: 600px;
+        background-color: pink;
+      }
+      .contact {
+        height: 600px;
+        background-color: lavender;
+      }
+    }
+  }
+}
